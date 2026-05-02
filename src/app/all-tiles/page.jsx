@@ -1,9 +1,10 @@
-import React from 'react';
+import AllTiles from "@/components/shared/AllTiles";
 
 const page = () => {
     return (
+
         <div>
-            All Tiles
+            <AllTiles/>
         </div>
     );
 };
