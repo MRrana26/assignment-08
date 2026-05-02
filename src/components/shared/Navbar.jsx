@@ -28,7 +28,7 @@ const Navbar = () => {
                     </ul>
 
                     <div>
-                        <Link href={'/login'} className='md:size-default'><Button>Login</Button></Link>
+                        <Link href={'/register'} className='md:size-default'><Button>Create account</Button></Link>
                     </div>
                 
             </div>
