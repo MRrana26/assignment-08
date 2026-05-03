@@ -1,5 +1,5 @@
 "use client"
-import { Button, } from '@heroui/react';
+import { Button, Spinner, } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -61,8 +61,17 @@ const Navbar = () => {
                     </li>
                 </ul>
 
+
+
+
+
                 <div className='hidden md:flex gap-2 items-center'>
-                    {!loading && (
+                    {loading ? (
+                        <div className="flex items-center gap-2">
+                            <Spinner size="sm" />
+                            <span className="text-xs text-gray-500">Loading...</span>
+                        </div>
+                    ) : (
                         <>
                             {user ? (
                                 <div className='flex items-center gap-2'>
@@ -107,7 +116,7 @@ const Navbar = () => {
             </div>
 
             {mobileMenuOpen && (
-                <div className='md:hidden absolute top-full left-0 right-0 bg-white shadow-lg z-[100] py-4 px-4'>
+                <div className='md:hidden absolute top-full left-0 right-0 bg-white shadow-lg z-200 py-4 px-4'>
                     <ul className='flex flex-col gap-3 mb-4'>
                         <li className='font-semibold py-2'>
                             <NavLink href={'/'} onClick={() => setMobileMenuOpen(false)}>Home</NavLink>
