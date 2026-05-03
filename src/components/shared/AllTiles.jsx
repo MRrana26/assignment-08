@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button, Label, SearchField } from '@heroui/react';
+import { Button, Label, SearchField, Spinner } from '@heroui/react';
 
 const AllTiles = () => {
 
@@ -36,8 +36,9 @@ const AllTiles = () => {
 
     if (loading) {
         return (
-            <div className='container mx-auto my-10 text-center'>
-                <p>Loading...</p>
+            <div className="flex flex-col items-center gap-2 max-w-md mx-auto p-8 text-center">
+                <Spinner size="xl" />
+                <span className="text-xs text-muted">Loading... Please Wait!</span>
             </div>
         );
     }
