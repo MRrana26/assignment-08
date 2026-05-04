@@ -38,7 +38,10 @@ export default function RegisterPage() {
     console.log({ data, error })
 
     if (!error) {
-      router.push('/')
+      alert("Registration Successful!"); 
+      router.push('/');                 
+    } else {
+      alert(error.message || "Registration Failed!"); 
     }
 
   };

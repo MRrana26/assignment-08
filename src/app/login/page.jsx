@@ -21,11 +21,18 @@ export default function LoginPage() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const { data, error } = await authClient.signIn.email({
+    const { error } = await authClient.signIn.email({
       email,
       password,
       callbackURL: "/",
     });
+
+    if (error) {
+      alert(error.message || "Login failed! Please check your credentials.");
+    } else {
+      alert("Login successful!");
+      router.push('/');
+    }
 
 
   };
@@ -104,7 +111,7 @@ export default function LoginPage() {
 
 
       <p className="text-center text-sm text-gray-600 mt-2">
-         {"Don't have an account? "}{' '}
+        {"Don't have an account? "}{' '}
         <Link href="/register" className="text-teal-600 hover:text-teal-700 font-semibold">
           Register
         </Link>

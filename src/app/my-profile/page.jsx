@@ -23,7 +23,6 @@ const MyProfilePage = () => {
             });
             if (!error) {
                 setUser({ ...user, name: updateData.name, image: updateData.image });
-                setIsModalOpen(false);
                 alert('Profile updated successfully!');
             }
         } catch (error) {
