@@ -90,9 +90,6 @@ const MyProfilePage = () => {
                                 <Modal.Dialog className="sm:max-w-90">
                                     <Modal.CloseTrigger />
                                     <Modal.Header>
-                                        <Modal.Icon className="bg-default text-foreground">
-
-                                        </Modal.Icon>
                                         <Modal.Heading>Update your profile</Modal.Heading>
                                     </Modal.Header>
                                     <Modal.Body>
