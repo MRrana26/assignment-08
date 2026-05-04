@@ -37,7 +37,7 @@ const Banner = () => {
             <div className='absolute inset-0 flex flex-col items-center justify-center z-10'>
                 <div className='flex flex-col justify-center items-center space-y-3'>
                     <div className='bg-teal-700/90 px-5 py-1  rounded-full flex justify-center items-center'>
-                        <h1 className='text-xl md:text-2xl lg:text-4xl font-bold text-white'>Discover Your Perfect Aesthetic</h1>
+                        <h1 className='text-sm md:text-2xl lg:text-4xl font-bold text-white'>Discover Your Perfect Aesthetic</h1>
                     </div>
                     <Link href={'/all-tiles'}>
                         <Button>Browse Now</Button>

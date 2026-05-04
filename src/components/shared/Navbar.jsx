@@ -101,23 +101,27 @@ const Navbar = () => {
                     )}
                 </div>
 
-                <div className='md:hidden flex items-center'>
-                    <Button
-                        isIconOnly
-                        size="sm"
-                        variant="light"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="flex md:hidden"
-                    >
-                        <FiMenu size={24} />
-                    </Button>
-                </div>
+                {
+                    (
+                        <div className='lg:hidden flex items-center'>
+                            <Button
+                                isIconOnly
+                                size="sm"
+                                variant="light"
+                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                className="flex lg:hidden"
+                            >
+                                <FiMenu size={24} />
+                            </Button>
+                        </div>
+                    )
+                }
 
             </div>
 
             {mobileMenuOpen && (
-                <div className='md:hidden absolute top-full left-0 right-0 bg-white shadow-lg z-200 py-4 px-4'>
-                    <ul className='flex flex-col gap-3 mb-4'>
+                <div className='md:hidden block absolute  top-full left-0 right-0 bg-white shadow-lg z-200 py-4 px-4'>
+                    <ul className='flex flex-col gap-3 w-96 mb-4'>
                         <li className='font-semibold py-2'>
                             <NavLink href={'/'} onClick={() => setMobileMenuOpen(false)}>Home</NavLink>
                         </li>

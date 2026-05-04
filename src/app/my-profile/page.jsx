@@ -1,5 +1,5 @@
 "use client"
-import { Card, Spinner } from '@heroui/react';
+import { Card, Input, Spinner, Button, Modal } from '@heroui/react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
@@ -11,12 +11,35 @@ const MyProfilePage = () => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const [updateLoading, setUpdateLoading] = useState(false);
+    const [updateData, setUpdateData] = useState({ name: '', image: '' })
+
+    const handleUpdate = async () => {
+        setUpdateLoading(true);
+        try {
+            const { error } = await authClient.updateUser({
+                name: updateData.name,
+                image: updateData.image
+            });
+            if (!error) {
+                setUser({ ...user, name: updateData.name, image: updateData.image });
+                setIsModalOpen(false);
+                alert('Profile updated successfully!');
+            }
+        } catch (error) {
+            alert('Something went wrong');
+        } finally {
+            setUpdateLoading(false);
+        }
+    };
+
     useEffect(() => {
         const fetchSession = async () => {
             try {
                 const { data: session } = await authClient.getSession();
                 if (session?.user) {
                     setUser(session.user);
+                    setUpdateData({ name: session.user.name, image: session.user.image || '' });
                 } else {
                     router.push('/login');
                 }
@@ -54,13 +77,53 @@ const MyProfilePage = () => {
                         height={100}
                         className='w-32 h-32 mx-auto border-4 border-teal-500 rounded-full object-cover'
                     />
-                    <button className="absolute bottom-0 right-0 bg-teal-600 rounded-full p-2 text-white hover:bg-teal-700 transition">
-                        <FiEdit2 size={16} />
-                    </button>
                 </div>
 
                 <h1 className="text-2xl font-bold mt-4">{user.name}</h1>
                 <p className="text-gray-500 mt-1">{user.email}</p>
+
+
+                <div>
+                    <Modal>
+                        <Button variant="secondary"><FiEdit2/> Edit Profile</Button>
+                        <Modal.Backdrop>
+                            <Modal.Container>
+                                <Modal.Dialog className="sm:max-w-90">
+                                    <Modal.CloseTrigger />
+                                    <Modal.Header>
+                                        <Modal.Icon className="bg-default text-foreground">
+
+                                        </Modal.Icon>
+                                        <Modal.Heading>Welcome to HeroUI</Modal.Heading>
+                                    </Modal.Header>
+                                    <Modal.Body>
+
+                                        <div className="bg-white p-6 rounded-xl w-full max-w-md mx-auto">
+                                            <h2 className="text-lg font-semibold mb-4">Update Profile</h2>
+
+                                            <div className="flex flex-col gap-3">
+                                                <Input
+                                                    value={updateData.name}
+                                                    onChange={(e) => setUpdateData({ ...updateData, name: e.target.value })}
+                                                    placeholder="Name"
+                                                />
+                                                <Input
+                                                    value={updateData.image}
+                                                    onChange={(e) => setUpdateData({ ...updateData, image: e.target.value })}
+                                                    placeholder="Image URL"
+                                                />
+                                            </div>
+
+                                        </div>
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button onClick={handleUpdate} isLoading={updateLoading}>Submit</Button>
+                                    </Modal.Footer>
+                                </Modal.Dialog>
+                            </Modal.Container>
+                        </Modal.Backdrop>
+                    </Modal>
+                </div>
             </Card>
         </div>
     );
