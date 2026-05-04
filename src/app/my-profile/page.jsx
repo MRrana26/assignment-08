@@ -67,7 +67,7 @@ const MyProfilePage = () => {
     }
 
     return (
-        <div className="container mx-auto my-10 px-4">
+        <div className="border mx-auto w-[90%] md:w-[80%] lg:max-w-125 py-10 my-10 rounded-xl">
             <Card className="max-w-md mx-auto p-8 text-center">
                 <div className="relative inline-block mx-auto">
                     <Image

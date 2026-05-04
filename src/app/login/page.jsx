@@ -39,7 +39,7 @@ export default function LoginPage() {
 
 
   return (
-    <Card className="border mx-auto w-125 py-10 my-10">
+    <Card className="border mx-auto w-[90%] md:w-[80%] lg:max-w-125 py-10 my-10 rounded-xl">
       <h1 className="text-center text-2xl font-bold">Login</h1>
 
       <Form className="flex mx-auto flex-col gap-4" onSubmit={onSubmit}>
