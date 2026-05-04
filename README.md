@@ -1,3 +1,75 @@
+# Tiles Gallery
+
+## Project Name
+Tiles Gallery
+
+## Purpose
+Tiles Gallery is a  web application that allows users to browse, search, and view  types of tiles. Users can register, log in, and manage  profiles.
+
+## Live URL
+View Live Project: https://assignment-08-pi.vercel.app
+## Github Link
+https://github.com/MRrana26/assignment-08
+
+## Key Features
+
+### Authentication
+- User registration with name, email, password, and profile image URL
+- User login with email and password
+- Google social login integration
+
+
+### Home Page
+- Banner slider with "Discover Your Perfect Aesthetic" heading
+- Browse Now button linking to All Tiles page
+- Marquee showing announcements and updates
+- Featured Tiles section displaying top 4 tiles
+
+### All Tiles Page
+- Search functionality to filter tiles by title
+- Grid layout showing all tiles with images, titles, and prices
+- View Details button for each tile
+
+### Tile Details Page
+- High-resolution tile preview image
+- Detailed information including title, description, category, material, dimensions, price, and stock status
+
+
+### My Profile Page
+- View user profile information
+- Update profile name and image URL
+- Logout functionality
+
+### Navigation
+- Responsive navbar with desktop and mobile menu
+- Conditional rendering based on login status
+- Shows Sign Up/Sign In buttons for guests
+- Shows user avatar, name, and logout for logged-in users
+
+### Responsive Design
+- Fully responsive 
+
+
+
+### UI Components
+- **@heroui/react**: UI component library
+- **@heroui/icons**: Icon set for HeroUI
+
+### Authentication
+- **better-auth**: Authentication library
+- **mongodb**: MongoDB driver for database operations
+- **better-auth/adapters/mongodb**: MongoDB adapter for Better Auth
+
+### use
+- **swiper.js**: Touch slider component for banner carousel
+- **swiper/css**: Swiper styles
+- **swiper/css/navigation**: Swiper navigation styles
+- **react-fast-marquee**: Scrolling text component
+- **@gravity-ui/icons**
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
