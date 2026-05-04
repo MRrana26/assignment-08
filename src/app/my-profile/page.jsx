@@ -94,12 +94,11 @@ const MyProfilePage = () => {
                                         <Modal.Icon className="bg-default text-foreground">
 
                                         </Modal.Icon>
-                                        <Modal.Heading>Welcome to HeroUI</Modal.Heading>
+                                        <Modal.Heading>Update your profile</Modal.Heading>
                                     </Modal.Header>
                                     <Modal.Body>
 
                                         <div className="bg-white p-6 rounded-xl w-full max-w-md mx-auto">
-                                            <h2 className="text-lg font-semibold mb-4">Update Profile</h2>
 
                                             <div className="flex flex-col gap-3">
                                                 <Input
